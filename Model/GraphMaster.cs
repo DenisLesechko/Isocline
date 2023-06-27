@@ -50,11 +50,11 @@ namespace Isocline
             }
         }
 
-        public void DrawQuadraticInterpolation( Func<double, double, double> dy, double x0, double y0)
+        public void DrawQuadraticInterpolation( Func<double, double, double> dy, double x0, double y0, double accurac)
         {
             Bitmap bmp = new Bitmap(picture.Image);
             Graphics g = Graphics.FromImage(bmp);
-            double x = x0, y = y0, step = 0.001;
+            double x = x0, y = y0, step = accurac;
             List<PointF> points = new List<PointF>();
             points.Add(Helpers.Transform(x, y, min, max, width, height));
             while (x <= max)
@@ -107,11 +107,11 @@ namespace Isocline
             g.DrawLines(Pens.Black, points.ToArray());
             picture.Image = bmp;
         }
-        public void DrawLinearInterpolation( Func<double, double, double> dy, double x0, double y0)
+        public void DrawLinearInterpolation( Func<double, double, double> dy, double x0, double y0, double accurac)
         {
             Bitmap bmp = new Bitmap(picture.Image);
             Graphics g = Graphics.FromImage(bmp);
-            double x = x0, y = y0, step = 0.001;
+            double x = x0, y = y0, step = accurac;
             List<PointF> points = new List<PointF>();
             points.Add(Helpers.Transform(x, y, min, max, width, height));
             while (x <= max)

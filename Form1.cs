@@ -46,7 +46,7 @@ namespace Isocline
             functionController = new FunctionController(box_fxy);  
             isoclineControler = new IsoclineControler(isoclineModel);
             //View
-            graphView = new GraphView(picture, panel, box_fxy, b_min, b_max, b_x, b_y, graphController, functionController);
+            graphView = new GraphView(picture, panel, box_fxy, b_min, b_max, b_x, b_y, graphController, functionController,accuracy);
             isoclineView = new IsoclineView(picture, panel, box_fxy, b_min, b_max, b_x, b_y,b_step,b_length,isoclineControler,functionController, constanta, graphMaster);
             saveView = new SaveView(picture,saveController);
             helpView = new HelpView();

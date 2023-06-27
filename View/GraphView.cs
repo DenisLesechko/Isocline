@@ -21,7 +21,8 @@ namespace Isocline.View
         private KryptonTextBox b_max;
         private KryptonTextBox b_x;
         private KryptonTextBox b_y;
-        public GraphView(PictureBox picture, KryptonPanel panel,KryptonTextBox box_fxy,KryptonTextBox b_min,KryptonTextBox b_max, KryptonTextBox b_x, KryptonTextBox b_y,GraphController graphController,FunctionController functionController)
+        private KryptonTextBox accuracy;
+        public GraphView(PictureBox picture, KryptonPanel panel,KryptonTextBox box_fxy, KryptonTextBox b_min, KryptonTextBox b_max, KryptonTextBox b_x, KryptonTextBox b_y, GraphController graphController, FunctionController functionController, KryptonTextBox accuracy)
         {
             this.picture = picture;
             this.panel = panel;
@@ -32,6 +33,7 @@ namespace Isocline.View
             this.b_y = b_y;
             this.graphController = graphController;
             this.functionController = functionController;
+            this.accuracy = accuracy;
         }
 
         public void PrintGraph(object sender, EventArgs args)
@@ -45,8 +47,9 @@ namespace Isocline.View
                 var max = double.Parse(b_max.Text);
                 var x0 = double.Parse(b_x.Text);
                 var y0 = double.Parse(b_y.Text);
+                var accurac = double.Parse(accuracy.Text);
 
-                graphController.CreateGraphImage(min,max,picture.Width,picture.Height,f,x0,y0);
+                graphController.CreateGraphImage(min,max,picture.Width,picture.Height,f,x0,y0,accurac);
 
             }
             catch (Exception )
@@ -65,8 +68,8 @@ namespace Isocline.View
                 var max = double.Parse(b_max.Text);
                 var x0 = double.Parse(b_x.Text);
                 var y0 = double.Parse(b_y.Text);
-
-                graphController.CreateGraphImage2(min, max, picture.Width, picture.Height, f, x0, y0);
+                var accurac = double.Parse(accuracy.Text);
+                graphController.CreateGraphImage2(min, max, picture.Width, picture.Height, f, x0, y0,accurac);
 
             }
             catch (Exception)

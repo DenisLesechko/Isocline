@@ -16,17 +16,17 @@ namespace Isocline.Controller
         {
             picture = picture_;
         }
-        public void CreateGraphImage(double min, double max, int width, int height, Func<double, double, double> f, double x0, double y0)
+        public void CreateGraphImage(double min, double max, int width, int height, Func<double, double, double> f, double x0, double y0,double accurac)
         {
             var gm = new GraphMaster(min, max, picture);
             gm.CreateGraph(width, height);
-            gm.DrawLinearInterpolation(f, x0, y0);
+            gm.DrawLinearInterpolation(f, x0, y0,accurac);
         }
-        public void CreateGraphImage2(double min, double max, int width, int height, Func<double, double, double> f, double x0, double y0)
+        public void CreateGraphImage2(double min, double max, int width, int height, Func<double, double, double> f, double x0, double y0, double accurac)
         {
             var gm = new GraphMaster(min, max, picture);
             gm.CreateGraph(width, height);
-            gm.DrawQuadraticInterpolation(f, x0, y0);
+            gm.DrawQuadraticInterpolation(f, x0, y0,accurac);
         }
     }
 }
